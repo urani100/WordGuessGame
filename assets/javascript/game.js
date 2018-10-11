@@ -1,51 +1,71 @@
-//$document.ready(function(){
+$(document).ready(function(){
 
+  
+    var masterArr=[
+        { name: "q", pic: "assets/images/pic2.png", band:"Q", text: "tba"},
+        { name: "queen", pic:"assets/images/pic3.png", band:"Quuen", text: "tba"}
     
-    
-    var masterArr=[['q','u','e', 'e', 'n',], ['l', 'o', 'v', 'e']];
+    ]
     var correctGuess =[];
     var inCorrectGuess =[];
-    var count = 0; // number of turns/words in the game
-    var loss = 0// number of times user makes wrong guess
-    var endOfGame=masterArr.length;
-    var currentWord = masterArr[count];
+    var target = Math.floor(Math.random() * masterArr.length);
+    var currentWord = masterArr[target]["name"].split(""); 
+    var loss = 0;// number of times user makes wrong guess
     
-    // is it the begining of the game or the end of the game?
-     
-     //create an array with the same length as current word to hold the correct guesses
-      
-      for(var i = 0; i< currentWord.length; i++){
-        correctGuess[i]='_'
-      }
-      
 
-      document.onkeyup = function(event){
-        var userInput = String.fromCharCode(event.keyCode).toLowerCase(); 
     
-        ////look to see if user entry matches letter in currentWord
+
+    //function verifies that we are not at the end of the current word
+    //musts be revisited... I need to figure out when the user clik the last letter when getting the correct word...
+    // this assumes that the that the user cliks one last time after the win...
+     var gameState = function(){
+        return correctGuess.join("") === masterArr[target]["name"];
+     }
+ 
+
+
+    document.onkeyup = function(event){
+    var userInput = String.fromCharCode(event.keyCode).toLowerCase(); 
+    var stillPlaying = gameState(); 
+    if(!stillPlaying){
+        //verify that user entry matches letter in currentWord
         var letterPos = currentWord.indexOf(userInput);
-       
-
-        //if there is a match replace the later with '-' in the word array and add it in the correct position in the correctGuess array
-        //if there is no match add the letter to the inCorrectGuess array ( for latter and increase the count )
+        
         if(userInput === currentWord[letterPos]){
             currentWord.splice(letterPos, 1, '_');
-            correctGuess[letterPos] = userInput;   
+            correctGuess[letterPos] = userInput; 
         }else{
             if(inCorrectGuess.indexOf(userInput)===-1){
                 inCorrectGuess.push(userInput);
                 loss++;
-
             }
         }
-        console.log(currentWord);
-        console.log(correctGuess);
-        console.log(inCorrectGuess);
-    }
+        console.log("currentWord: " + currentWord + " correctGuess " + correctGuess.join("") + " inCorrectGuess: " + inCorrectGuess + " Master: " + masterArr[target]["name"] )
+    }else{
+       // update band picture
+        var link =  masterArr[target]["pic"];
+        var bandImage = $("<img>");
+        bandImage.addClass("image");
+        bandImage.attr("src", link);
+        $(".image").html(bandImage);
 
-        
-     
-      
+        //updade the band name
+        var newText = masterArr[target]["band"]
+        var bandName = $("<h1>");
+        bandName.addClass("text");
+        $(".text").html(newText);
+
+        // add song for x seconds.
+
+
+
+        alert("game is over!!")
+    }      
+
+    
+ }//end of document.onkeyup
+    
+
 
   
-//})//end of $document.ready
+});//end of $document.ready
