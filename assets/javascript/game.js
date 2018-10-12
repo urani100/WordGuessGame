@@ -43,31 +43,32 @@ var obj ={
         if(userInput === this.currentWordUpdate[letterPos]){
             this.currentWordUpdate.splice(letterPos, 1, '_');
             this.correctGuess[letterPos] = userInput; 
-            this.updateCorrectLetter ();
-            debugger;
+            this.updateCorrectLetter (this.correctGuess);
             var gameState = this.gameState();
             if(gameState){
                 this.updateWin();
                 this.updatePicture();
+                this.updateBand();
+                this.reset();
             }
         }else{
             if(this.inCorrectGuess.indexOf(userInput)===-1){
                 this.inCorrectGuess.push(userInput);
-                this.updateIncorrectLetter();
+                this.updateIncorrectLetter(this.inCorrectGuess);
                 this.loss++;
             }
         }
      },
      //end of letterCheck
-     updateCorrectLetter : function(){
-         var correct_guess = this.correctGuess;
+     updateCorrectLetter : function(word){
+         var correct_guess = word;//this.correctGuess;
          var new_correct_guess = $("<h3>");
          new_correct_guess.addClass("correct");
          $('#correct').html(correct_guess);
     },// end of updateCorrectLetter
     
-    updateIncorrectLetter : function(){
-         var wrong_guess = this.inCorrectGuess;
+    updateIncorrectLetter : function(word){
+         var wrong_guess = word;
          var new_wrong_guess = $("<h3>");
          new_wrong_guess.addClass("wrong");
          $('#wrong').html(wrong_guess);
@@ -82,43 +83,40 @@ var obj ={
     }, //end of updateWin
     
     updatePicture: function(){
-        var link =  masterArr[target]["pic"];
+        var link =  this.masterArr[target]["pic"];
         var bandImage = $("<img>");
         bandImage.addClass("image");
         bandImage.attr("src", link);
         $(".image").html(bandImage);
-    },
+    },// end of updatePicture
+
+    updateBand: function(){
+        var newText = this.masterArr[target]["band"]
+        bandName = $("<h1>");
+        bandName.addClass("text");
+        $(".text").html(newText);
+    },// end of updateBand
 
     gameState : function(){
-       
         return this.correctGuess.join("") === this.currentWord.join(""); 
+    },// end of gameState
+
+    reset: function(){
+    //debugger;
+    var resetCorrectWord = '- - - -';
+    var resetIcorrectWord = ' ';
+    this.updateCorrectLetter(resetCorrectWord);
+    this.updateIncorrectLetter(esetIcorrectWor);
+    this.correctGuess = [];
+    this.inCorrectGuess= [];
+    this.currentWord = [];
+    this.currantWordUpdate= [];
     }
-
-
-
 }//////end of obj
 
   
-  
-
-
-    // var updateBand = function(){
-    //     var newText = masterArr[target]["band"]
-    //     var bandName = $("<h1>");
-    //     bandName.addClass("text");
-    //     $(".text").html(newText);
-
-    // }
-
    
-
-    // var gameState = function(){
-    //   return correctGuess.join("") === masterArr[target]["name"]; 
-    //  }
-
-   
-        
-    
+          
     document.onkeyup = function(event){
     if(obj.correctGuess.length === 0 && obj.inCorrectGuess.length === 0){
         obj.setGame();
@@ -127,36 +125,6 @@ var obj ={
     }else{
         obj.letterCheck ();  
     }
-    /*
-    var turnOver = gameState();  // return false the first time
-    if(!turnOver){
-        letterCheck ();
-        if(correctGuess.join("") === masterArr[target]["name"]){
-            updateWin();
-            updatePicture();
-            updateBand();
-            setGame();
-            updateCorrectLetter();
-            updateIncorrectLetter();
-        }
-       debugger;
-   }else{
-       if(correctGuess.join("") === masterArr[target]["name"]){
-        // updateWin();
-        // updatePicture();
-        // updateBand();
-        // setGame();
-        // updateCorrectLetter();
-        // updateIncorrectLetter();
-        alert("game is over")
-       }
-
-     }// end of else   
-   
-    */
  }//end of document.onkeyup
     
-
-
-  
 });//end of $document.ready
