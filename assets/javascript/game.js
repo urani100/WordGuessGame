@@ -2,8 +2,8 @@ $(document).ready(function(){
 
   
     var masterArr=[
-        { name: "qxxx", pic: "assets/images/pic2.png", band:"Q"},
-        { name: "queen", pic:"assets/images/pic3.png", band:"Queen"}
+        { name: "qe", pic: "assets/images/pic2.png", band:"Q"},
+        { name: "ko", pic:"assets/images/pic3.png", band:"Queen"}
     
     ]
     var correctGuess =[];
@@ -18,6 +18,19 @@ $(document).ready(function(){
     for(var i = 0; i< currentWord.length; i++){
             correctGuess[i] = ' - ';
         }
+
+    var setGame = function(){
+        stillPlaying = false;
+        correctGuess =[];
+        inCorrectGuess =[];
+        var target = Math.floor(Math.random() * masterArr.length);
+        var currentWord = masterArr[target]["name"].split(""); 
+        for(var i = 0; i< currentWord.length; i++){
+            correctGuess[i] = ' - ';
+        }
+        console.log(currentWord)
+
+    }   
 
     var settingGuessArray = function(){
         var correct_guess = correctGuess;
@@ -66,25 +79,13 @@ $(document).ready(function(){
       return correctGuess.join("") === masterArr[target]["name"]; 
      }
 
-
-    document.onkeyup = function(event){
-    //user input
-    var userInput = String.fromCharCode(event.keyCode).toLowerCase(); 
-    var stillPlaying = gameState(); 
-    
-    if(!stillPlaying){
-        //verify that user entry matches letter in currentWord
+     var letterCheck = function(){
+        var userInput = String.fromCharCode(event.keyCode).toLowerCase(); 
         var letterPos = currentWord.indexOf(userInput);
         if(userInput === currentWord[letterPos]){
             currentWord.splice(letterPos, 1, '_');
             correctGuess[letterPos] = userInput; 
             updateCorrectLetter ();
-            if(correctGuess.join("") === masterArr[target]["name"]){
-                updateWin();
-                updatePicture();
-                updateBand();
-                //reset game
-            }
         }else{
             if(inCorrectGuess.indexOf(userInput)===-1){
                 inCorrectGuess.push(userInput);
@@ -92,25 +93,29 @@ $(document).ready(function(){
                 loss++;
             }
         }
-    }else{
 
-       // reset game?
+     }
+        
+    
+    document.onkeyup = function(event){
+    var turnOver = gameState();  // return false the first time
+    if(!turnOver){
+        letterCheck ();
        debugger;
-       alert("game is over");
-       for(var i = 0; i< currentWord.length; i++){
-        correctGuess[i] = ' - ';
-    }
-    gameState ();
-    //    var correctGuess =[];
-    //    var inCorrectGuess =[];
-    //    var target = Math.floor(Math.random() * masterArr.length);
-    //    var currentWord = masterArr[target]["name"].split(""); 
-    
+   }else{
+       if(correctGuess.join("") === masterArr[target]["name"]){
+        updateWin();
+        updatePicture();
+        updateBand();
+        setGame();
+        updateCorrectLetter();
+        updateIncorrectLetter();
+       }
 
-      }// end of else   
-
+     }// end of else   
+   
     
-   }//end of document.onkeyup
+ }//end of document.onkeyup
     
 
 
