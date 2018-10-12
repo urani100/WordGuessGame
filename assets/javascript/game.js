@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   
     var masterArr=[
-        { name: "q", pic: "assets/images/pic2.png", band:"Q"},
+        { name: "qxxx", pic: "assets/images/pic2.png", band:"Q"},
         { name: "queen", pic:"assets/images/pic3.png", band:"Queen"}
     
     ]
@@ -12,70 +12,102 @@ $(document).ready(function(){
     var currentWord = masterArr[target]["name"].split(""); 
     var loss = 0;// number of times user makes wrong guess
     var win = 0;
-    
 
-    
 
-    //function verifies that we are not at the end of the current word
-    //musts be revisited... I need to figure out when the user clik the last letter when getting the correct word...
-    // this assumes that the that the user cliks one last time after the win...
-     
+    //settirng up correctGuess with dashes with correct ni=umnber of letters
+    for(var i = 0; i< currentWord.length; i++){
+            correctGuess[i] = ' - ';
+        }
+
+    var settingGuessArray = function(){
+        var correct_guess = correctGuess;
+        var new_correct_guess = $("<h3>");
+        new_correct_guess.addClass("correct");
+        $('#correct').html(correct_guess);
+    }
+
+    var updateCorrectLetter = function(){
+        var correct_guess = correctGuess;
+        var new_correct_guess = $("<h3>");
+        new_correct_guess.addClass("correct");
+        $('#correct').html(correct_guess);
+    }
+    var updateWin = function(){
+         win++;
+         var newScore = win;
+         var newWin = $("<span>");
+         newWin.addClass("win");
+         $("#win").html(newScore);
+    }
+
+    var updatePicture =function(){
+        var link =  masterArr[target]["pic"];
+        var bandImage = $("<img>");
+        bandImage.addClass("image");
+        bandImage.attr("src", link);
+        $(".image").html(bandImage);
+    }
+    var updateBand = function(){
+        var newText = masterArr[target]["band"]
+        var bandName = $("<h1>");
+        bandName.addClass("text");
+        $(".text").html(newText);
+
+    }
+
+    var updateIncorrectLetter = function(){
+        var wrong_guess = inCorrectGuess;
+        var new_wrong_guess = $("<h3>");
+        new_wrong_guess.addClass("wrong");
+        $('#wrong').html(wrong_guess);
+    }
+
     var gameState = function(){
       return correctGuess.join("") === masterArr[target]["name"]; 
      }
- 
 
 
     document.onkeyup = function(event){
+    //user input
     var userInput = String.fromCharCode(event.keyCode).toLowerCase(); 
     var stillPlaying = gameState(); 
-
+    
     if(!stillPlaying){
         //verify that user entry matches letter in currentWord
         var letterPos = currentWord.indexOf(userInput);
-        
         if(userInput === currentWord[letterPos]){
             currentWord.splice(letterPos, 1, '_');
             correctGuess[letterPos] = userInput; 
+            updateCorrectLetter ();
             if(correctGuess.join("") === masterArr[target]["name"]){
-                win++;
-                 //update win
-                var newScore = win;
-                var newWin = $("<span>");
-                newWin.addClass("win");
-                $("#win").html(newScore);
-
-                var link =  masterArr[target]["pic"];
-                var bandImage = $("<img>");
-                bandImage.addClass("image");
-                bandImage.attr("src", link);
-                $(".image").html(bandImage);
-        
-                //updade the band name
-                var newText = masterArr[target]["band"]
-                var bandName = $("<h1>");
-                bandName.addClass("text");
-                $(".text").html(newText);
+                updateWin();
+                updatePicture();
+                updateBand();
+                //reset game
             }
-        
         }else{
             if(inCorrectGuess.indexOf(userInput)===-1){
                 inCorrectGuess.push(userInput);
+                updateIncorrectLetter();
                 loss++;
             }
         }
+    }else{
 
-        console.log("currentWord: " + currentWord + " correctGuess " + correctGuess.join("") + 
-           " inCorrectGuess: " + inCorrectGuess + " Master: " + masterArr[target]["name"])
-       }else{
-      
-        // restart game 
-        correctGuess =[];
-        inCorrectGuess =[];
-        target = Math.floor(Math.random() * masterArr.length);
-        currentWord = masterArr[target]["name"].split(""); 
-        // alert("game is over!!")
-      }      
+       // reset game?
+       debugger;
+       alert("game is over");
+       for(var i = 0; i< currentWord.length; i++){
+        correctGuess[i] = ' - ';
+    }
+    gameState ();
+    //    var correctGuess =[];
+    //    var inCorrectGuess =[];
+    //    var target = Math.floor(Math.random() * masterArr.length);
+    //    var currentWord = masterArr[target]["name"].split(""); 
+    
+
+      }// end of else   
 
     
    }//end of document.onkeyup
