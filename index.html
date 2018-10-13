@@ -10,7 +10,7 @@
     <script src="assets/javascript/game.js"></script>
     <link rel="stylesheet" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman|Roboto:300i" rel="stylesheet">
     <style type="text/css">
         body{
              background-color: black;
@@ -24,10 +24,10 @@
         }
 
        #header{
-           padding: 15px;
+           padding: 10px;
            margin: 0;
            text-align: center;
-           letter-spacing: 10px;
+           letter-spacing: 40px;
            font-size: 80px;
            font-weight: 90;
            background-color: black;
@@ -43,6 +43,11 @@
            background-repeat: no-repeat;
             background-size: 400px 400px;
             padding: 100px;
+            position: relative;
+            z-index: 1;
+
+             /* position: absolute; */
+             
     
        }
        .updates{
@@ -55,41 +60,66 @@
         .text{
             font-size: 25px;
             font-weight: 60;
-            color: #91c7a9;
+            color: #b48375;
             letter-spacing: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Charmonman', cursive;
 
         }
 
         p{
            
             font-size: 20px;
-            color: #b48375;
+            color: #91c7a9; 
             line-height: 40px; 
-            text-align: justify;
+            text-align: center;
             letter-spacing: 7px;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Charmonman', cursive;
         }
 
         #correct, 
         #wrong{
-            letter-spacing: 2px;
+            letter-spacing: 10px;
         }
 
         #sub{
             text-align:center;
             color: #91c7a9; 
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Charmonman', cursive;
         }
         .stickyFooter{
             padding-top: 10px;
-            background-color: #a92f41;
-            color:  #b48375;
+            background-color: black; 
+            color:  #a92f41;
             text-align: center;
             position: fixed;
             width: 100%;
             font-size: 12px;
-            border-top: 2px solid #91c7a9; 
+            border-top: 2px solid #b48375;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Charmonman', cursive;
         }
 
-       
+       .img{
+           margin-top: 0px;
+           margin-left: 3px;
+           margin-bottom: 7px;
+           position: relative;
+            z-index: -1; 
+          
+       } 
+    
+       .image {
+           margin-top: 10px;
+           margin-left: 3px;
+           height: 200px;
+           width: 200px;
+           position: relative; /*not working*/
+           z-index: -1
+        
+       }
 
       </style>
     
@@ -97,15 +127,18 @@
 </head>
 <body>
     <header id="header">
-        <span>GUESSING GAME</span> 
-        <p id="sub">The Sade Edition</p>
+        <span>THE GUESSING GAME</span> 
+        <br>
+        <p id="sub">The Best of Sade</p>
         
     </header>
 
     <div class="row main">
-            <div class="col-12 col-md-6 image back">
-                   
-                <img src="assets/images/pic1.png" alt="primaryImage" height="200" width="200">
+            <div class="col-12 col-md-6 back">
+                   <div class = "image">
+                        <img class= img src="assets/images/picx.png" alt="primaryImage" height="200" width="200">
+                   </div>
+                
             </div>
             <div class="col-12 col-md-6">
                 
@@ -116,7 +149,8 @@
                 <p>Correct Guess: <span id='correct'>- - - -</span></p>
                 <p>Wrong Guess: <span id='wrong'></span></p>
                 <p>Remaining Guesse(s): <span id='loss'>10</span></p>
-
+                <br>
+               
             </div>
         </div>
        

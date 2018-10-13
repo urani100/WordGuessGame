@@ -3,6 +3,7 @@ $(document).ready(function(){
     var obj ={
         masterArr : [
             { name: "qe", pic: "assets/images/pic2.png", band:"Q"},
+
             { name: "qe", pic:"assets/images/pic3.png", band:"Queen"}
         
         ],
@@ -117,6 +118,7 @@ $(document).ready(function(){
         this.inCorrectGuess= [];
         this.currentWord = [];
         this.currantWordUpdate= [];
+        this.loss = 11;
         }
     }//end of obj
 
