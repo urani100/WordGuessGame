@@ -2,19 +2,24 @@ $(document).ready(function(){
 
     var obj ={
         masterArr : [
-            { name: "qe", pic: "assets/images/pic2.png", band:"Q"},
-
-            { name: "qe", pic:"assets/images/pic3.png", band:"Queen"}
-        
-        ],
+            { name: "yourloveisking", pic: "assets/images/king.png", band:"Your love is king"},
+             { name: "thesweetesttaboo", pic: "assets/images/taboo.png", band:"The Sweetest Taboo"},
+             { name: "paradise", pic: "assets/images/paradise.png", band:"Paradise"},
+            { name: "jezebel", pic: "assets/images/jezebel.png", band:"Jezebel"},
+            { name: "isitacrime", pic: "assets/images/crime.png", band:"Is It a Crime"},
+            { name: "likeatattoo", pic: "assets/images/tatoo.png", band:"like a Tattoo"},
+            { name: "pearls", pic: "assets/images/perls.png", band:"Pearls"},
+            { name: "noordinarylove", pic: "assets/images/noordinary.png", band:"No Ordinary Love"},
+            { name: "cherishtheday", pic: "assets/images/cherish.png", band:"Cherish the Day"},
+            { name: "kissoflife", pic: "assets/images/kiss.png", band:"kiss of Life"},
+            { name: "hangontoyourlove", pic: "assets/images/hangon.png", band:"Hang on to your Love"} 
+        ], // did not take account of spcace in letter check
         correctGuess : [],
         inCorrectGuess: [],
         currentWord : [], 
         currantWordUpdate: [],
-        //currentWord = masterArr[target]["name"].split(""), 
-        loss : 10,
+        loss : 10, // would like to set loss based on word length | this.loss =  this.currentWord + 5? 
         win: 0,
-        //target : Math.floor(Math.random() * this.masterArr.length),
 
         setGame : function(){
             
@@ -24,7 +29,6 @@ $(document).ready(function(){
             for(var i = 0; i< this.currentWord.length; i++){
                 this.correctGuess[i] = ' - ';
             }
-            //this.loss =  this.currentWord + 5;
 
         }, //end of setGame 
 
@@ -108,9 +112,9 @@ $(document).ready(function(){
         },// end of gameState
 
         reset: function(){
-        //debugger;
        
-        var resetCorrectWord = '- - - -';
+       
+        var resetCorrectWord = ' ';
         var resetIcorrectWord = ' ';
         this.updateCorrectLetter(resetCorrectWord);
         this.updateIncorrectLetter(resetIcorrectWord);
@@ -122,7 +126,7 @@ $(document).ready(function(){
         }
     }//end of obj
 
-            
+        // add alert to prevent user from entering non alpha ...
         document.onkeyup = function(event){
         if(obj.correctGuess.length === 0 && obj.inCorrectGuess.length === 0){
             obj.setGame();

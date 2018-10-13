@@ -11,49 +11,64 @@
     <link rel="stylesheet" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Charmonman|Roboto:300i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
     <style type="text/css">
+
+    /*ADD FONT FAMILY!!!!*/
+
         body{
              background-color: black;
         }
-        .main{
-            width: 960px;
-            /* height: 400px; */
-            margin: 50 auto 0 auto; 
-            background-color: black;
-        
-        }
+     
 
        #header{
            padding: 10px;
            margin: 0;
            text-align: center;
-           letter-spacing: 40px;
-           font-size: 80px;
-           font-weight: 90;
+           letter-spacing: 30px;
+           font-size: 10px;
            background-color: black;
            color:#a92f41;
            font-size: 48px;
            border-bottom: 2px solid #b48375;
-           
+           font-family: 'GFS Didot', serif;
+          
        }
-
+       .main{
+            width: 960px;
+            margin: 50 auto 0 auto; 
+            background-color: black;
+            
+         
+        }
     
        .back{
            background-image: url("assets/images/frame3.png"); 
            background-repeat: no-repeat;
-            background-size: 400px 400px;
+            background-size: 410px 410px;
             padding: 100px;
-            position: relative;
-            z-index: 1;
-
-             /* position: absolute; */
-             
+           
+       }
+       .img{
+        
+           margin-top: 0px;
+           margin-left: 3px;
+           margin-bottom: 7px;
+           
+          
+       } 
     
+       .image {
+            margin-left: 3px;
+           margin-bottom: 7px;
+           margin-top: 10px;
+           height: 190px;
+           width: 190px;
+           
        }
        .updates{
            padding-top: 50px;
            color: white;
-
        }
        
        
@@ -64,11 +79,9 @@
             letter-spacing: 10px;
             font-family: 'Roboto', sans-serif;
             font-family: 'Charmonman', cursive;
-
         }
 
-        p{
-           
+        p{ 
             font-size: 20px;
             color: #91c7a9; 
             line-height: 40px; 
@@ -102,24 +115,7 @@
             font-family: 'Charmonman', cursive;
         }
 
-       .img{
-           margin-top: 0px;
-           margin-left: 3px;
-           margin-bottom: 7px;
-           position: relative;
-            z-index: -1; 
-          
-       } 
     
-       .image {
-           margin-top: 10px;
-           margin-left: 3px;
-           height: 200px;
-           width: 200px;
-           position: relative; /*not working*/
-           z-index: -1
-        
-       }
 
       </style>
     
@@ -136,7 +132,7 @@
     <div class="row main">
             <div class="col-12 col-md-6 back">
                    <div class = "image">
-                        <img class= img src="assets/images/picx.png" alt="primaryImage" height="200" width="200">
+                        <img class= img src="assets/images/picx.png" alt="primaryImage" height="190" width="190">
                    </div>
                 
             </div>
@@ -146,9 +142,14 @@
                 <br>
                 <br>
                 <p>Number of win is: <span id='win'>0</span></p>
-                <p>Correct Guess: <span id='correct'>- - - -</span></p>
+                <p>Correct Guess: 
+                    <p><span id='correct'>
+                        <br>
+                        
+                    </span></p>
+                </p>
                 <p>Wrong Guess: <span id='wrong'></span></p>
-                <p>Remaining Guesse(s): <span id='loss'>10</span></p>
+                <p>Remaining Guesses: <span id='loss'>10</span></p>
                 <br>
                
             </div>
