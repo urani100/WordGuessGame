@@ -20,9 +20,9 @@ background-color: black;
 }
 
 .back{
-    background-image: url("assets/images/frame3.png"); 
-    /*will not work without the full path on laptop. Remains for testing purposes*/
-    /* background-image: url("/Users/ml/Desktop/Bootcamp/homework/WordGuessGame/assets/images/frame3.png");  */
+    background-image: url("/assets/images/frame3"); 
+    /*will not work without the full path on laptop.*/
+    background-image: url("/Users/ml/Desktop/Bootcamp/homework/WordGuessGame/assets/images/frame3.png");  
     background-repeat: no-repeat;
     background-size: 410px 410px;
     padding: 100px;
