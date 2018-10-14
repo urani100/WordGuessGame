@@ -23,7 +23,7 @@ $(document).ready(function(){
         currantWordUpdate: [],
         loss : 11, // Nice to have: set loss based on word length | this.loss =  this.currentWord 
         win: 0,
-        
+
         //set array and get random number for current guessing word
         setGame : function(){
             target = Math.floor(Math.random() * this.masterArr.length)
@@ -64,7 +64,7 @@ $(document).ready(function(){
                     this.updatePicture();
                     this.updateBand();
                     this.reset();
-                    this.playSong();
+                    //this.playSong();
                 }
             }else{
                 if(this.inCorrectGuess.indexOf(userInput)===-1){
@@ -79,8 +79,6 @@ $(document).ready(function(){
                         bandName = $("<h1>");
                         bandName.addClass("lossMsg");
                         $(".lossMsg").html(newText);
-
-
                         this.reset();
 
                     }
@@ -129,12 +127,12 @@ $(document).ready(function(){
         },// end of updatePicture
 
         playSong: function(){
-            var audioElement = document.createElement("audio");
+            audioElement = document.createElement("audio");
             audioElement.setAttribute("src", this.masterArr[target]["songName"]);
             audioElement.play();
-
+        //setTimeout to audioElement.pause() after  20 seconds
         }, // end of playSong
-
+       
         updateBand: function(){
             var newText = this.masterArr[target]["band"]
             bandName = $("<h1>");
@@ -158,10 +156,11 @@ $(document).ready(function(){
         this.currentWord = [];
         this.currantWordUpdate= [];
         this.loss = 11;
+        //audioElement.setTimeout(audioElement.pause(), 20000);
         }
     }//end of obj
 
-        // add alert to prevent user from entering non alpha ...
+        // nice to have: add alert to prevent user from entering non alpha 
         document.onkeyup = function(event){
         if(obj.correctGuess.length === 0 && obj.inCorrectGuess.length === 0){
             obj.setGame();

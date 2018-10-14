@@ -1,0 +1,103 @@
+body{
+background-color: black;
+}
+#header{
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 30px;
+    font-size: 10px;
+    background-color: black;
+    color:#a92f41;
+    font-size: 48px;
+    border-bottom: 2px solid #b48375;
+    font-family: 'GFS Didot', serif;
+}
+.main{
+    width: 960px;
+    margin: 50 auto 0 auto; 
+    background-color: black;
+}
+
+.back{
+    background-image: url("assets/images/frame3.png"); 
+    /*will not work without the full path on laptop. Remains for testing purposes*/
+    /* background-image: url("/Users/ml/Desktop/Bootcamp/homework/WordGuessGame/assets/images/frame3.png");  */
+    background-repeat: no-repeat;
+    background-size: 410px 410px;
+    padding: 100px;
+}
+.img{
+
+    margin-top: 0px;
+    margin-left: 3px;
+    margin-bottom: 7px;
+} 
+
+.image {
+    margin-left: 3px;
+    margin-bottom: 7px;
+    margin-top: 10px;
+    height: 190px;
+    width: 190px; 
+}
+.updates{
+    padding-top: 50px;
+    color: white;
+}
+
+
+.text{
+    font-size: 25px;
+    font-weight: 60;
+    color: #b48375;
+    letter-spacing: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Charmonman', cursive;
+}
+
+.lossMsg{
+    font-size: 20px;
+    font-weight: 30;
+    color: #b48375;
+    letter-spacing: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Charmonman', cursive;
+}
+
+p{ 
+    font-size: 20px;
+    color: #91c7a9; 
+    line-height: 40px; 
+    text-align: center;
+    letter-spacing: 7px;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Charmonman', cursive;
+}
+
+#correct, 
+#wrong{
+    letter-spacing: 10px;
+}
+
+#sub{
+    text-align:center;
+    color: #91c7a9; 
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Charmonman', cursive;
+}
+.stickyFooter{
+    padding-top: 10px;
+    background-color: black; 
+    color:  #a92f41;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    font-size: 12px;
+    border-top: 2px solid #b48375;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Charmonman', cursive;
+}
+
+    
+    

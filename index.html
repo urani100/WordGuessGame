@@ -8,127 +8,12 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
-    <link rel="stylesheet" href="assets/css/reset.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/reset.css"/>
     <link href="https://fonts.googleapis.com/css?family=Charmonman|Roboto:300i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
-    <style type="text/css">
-
-    /*ADD FONT FAMILY!!!!*/
-
-        body{
-             background-color: black;
-        }
-     
-
-       #header{
-           padding: 10px;
-           margin: 0;
-           text-align: center;
-           letter-spacing: 30px;
-           font-size: 10px;
-           background-color: black;
-           color:#a92f41;
-           font-size: 48px;
-           border-bottom: 2px solid #b48375;
-           font-family: 'GFS Didot', serif;
-          
-       }
-       .main{
-            width: 960px;
-            margin: 50 auto 0 auto; 
-            background-color: black;
-            
-         
-        }
+    <link rel="stylesheet" href="assets/css/style.css"/>
     
-       .back{
-           background-image: url("assets/images/frame3.png"); 
-           background-repeat: no-repeat;
-            background-size: 410px 410px;
-            padding: 100px;
-           
-       }
-       .img{
-        
-           margin-top: 0px;
-           margin-left: 3px;
-           margin-bottom: 7px;
-           
-          
-       } 
-    
-       .image {
-            margin-left: 3px;
-           margin-bottom: 7px;
-           margin-top: 10px;
-           height: 190px;
-           width: 190px;
-           
-       }
-       .updates{
-           padding-top: 50px;
-           color: white;
-       }
-       
-       
-        .text{
-            font-size: 25px;
-            font-weight: 60;
-            color: #b48375;
-            letter-spacing: 10px;
-            font-family: 'Roboto', sans-serif;
-            font-family: 'Charmonman', cursive;
-        }
-
-        .lossMsg{
-            font-size: 20px;
-            font-weight: 30;
-            color: #b48375;
-            letter-spacing: 10px;
-            font-family: 'Roboto', sans-serif;
-            font-family: 'Charmonman', cursive;
-        }
-
-        p{ 
-            font-size: 20px;
-            color: #91c7a9; 
-            line-height: 40px; 
-            text-align: center;
-            letter-spacing: 7px;
-            font-family: 'Roboto', sans-serif;
-            font-family: 'Charmonman', cursive;
-        }
-
-        #correct, 
-        #wrong{
-            letter-spacing: 10px;
-        }
-
-        #sub{
-            text-align:center;
-            color: #91c7a9; 
-            font-family: 'Roboto', sans-serif;
-            font-family: 'Charmonman', cursive;
-        }
-        .stickyFooter{
-            padding-top: 10px;
-            background-color: black; 
-            color:  #a92f41;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            font-size: 12px;
-            border-top: 2px solid #b48375;
-            font-family: 'Roboto', sans-serif;
-            font-family: 'Charmonman', cursive;
-        }
-
-    
-
-      </style>
-    
-
 </head>
 <body>
     <header id="header">
@@ -150,15 +35,17 @@
                 <p class ="text lossMsg">Press any key to play</p>
                 <br>
                 <br>
-                <p>Number of win<span id='win'></span></p>
-                <p>Correct Guess: 
+                <p>Number of win:  <span id='win'></span></p>
+                <br>
+                <p>Correct Guess 
                     <p><span id='correct'>
                         <br>
                         
                     </span></p>
                 </p>
-                <p>Wrong Guess <span id='wrong'></span></p>
-                <p>Remaining Number of Guesses<span id='loss'></span></p>
+                <p>Wrong Guess: <span id='wrong'></span></p>
+                <br>
+                <p>Remaining Guesses:<span id='loss'></span></p>
                 <br>
                
             </div>
