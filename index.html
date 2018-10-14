@@ -81,6 +81,15 @@
             font-family: 'Charmonman', cursive;
         }
 
+        .lossMsg{
+            font-size: 20px;
+            font-weight: 30;
+            color: #b48375;
+            letter-spacing: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Charmonman', cursive;
+        }
+
         p{ 
             font-size: 20px;
             color: #91c7a9; 
@@ -138,18 +147,18 @@
             </div>
             <div class="col-12 col-md-6">
                 
-                <p class ="text">Press any key to play</p>
+                <p class ="text lossMsg">Press any key to play</p>
                 <br>
                 <br>
-                <p>Number of win is: <span id='win'>0</span></p>
+                <p>Number of win<span id='win'></span></p>
                 <p>Correct Guess: 
                     <p><span id='correct'>
                         <br>
                         
                     </span></p>
                 </p>
-                <p>Wrong Guess: <span id='wrong'></span></p>
-                <p>Remaining Guesses: <span id='loss'>10</span></p>
+                <p>Wrong Guess <span id='wrong'></span></p>
+                <p>Remaining Number of Guesses<span id='loss'></span></p>
                 <br>
                
             </div>
