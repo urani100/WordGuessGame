@@ -64,7 +64,7 @@ $(document).ready(function(){
                     this.updatePicture();
                     this.updateBand();
                     this.reset();
-                    //this.playSong();
+                    this.playSong();
                 }
             }else{
                 if(this.inCorrectGuess.indexOf(userInput)===-1){
@@ -130,7 +130,10 @@ $(document).ready(function(){
             audioElement = document.createElement("audio");
             audioElement.setAttribute("src", this.masterArr[target]["songName"]);
             audioElement.play();
-        //setTimeout to audioElement.pause() after  20 seconds
+            //setTimeout to audioElement.pause() after  10 seconds
+            setTimeout(function(){
+                audioElement.pause();
+            },10000);
         }, // end of playSong
        
         updateBand: function(){
@@ -156,7 +159,7 @@ $(document).ready(function(){
         this.currentWord = [];
         this.currantWordUpdate= [];
         this.loss = 11;
-        //audioElement.setTimeout(audioElement.pause(), 20000);
+       
         }
     }//end of obj
 
